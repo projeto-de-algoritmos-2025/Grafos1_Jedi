@@ -5,22 +5,32 @@
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 21/1039573 | Larissa Stefane Barboza Santos |
+| 21/1029497  | Mylena Angélica Silva Farias  |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+Este repositório apresenta a solução de exercícios de juíz online do site [Hacker Rank](https://www.hackerrank.com/) relacionados ao assunto de grafos 1. Cada membro da dupla realizou 2 questões, sendo uma delas de nível médio e uma díficil.
+
+### Questões Médias
+| Título | Aluna | Resolução | 
+| -- | -- | --|
+| [Breadth First Search: Shortest Reach](https://www.hackerrank.com/challenges/bfsshortreach/problem?isFullScreen=true)  |  Mylena Angélica |   -----------  |
+| -------  |  Larissa Stefane | --------    |
+
+### Questões Difíceis
+| Título | Aluna | Resolução | 
+| -- | -- | --|
+| [Floyd : City of Blinding Lights](https://www.hackerrank.com/challenges/floyd-city-of-blinding-lights/problem?isFullScreen=true)  |  Mylena Angélica |   ------------  |
+| -------- |  Larissa Stefane |---------     |
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
-## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+## Link do vídeo
 
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+## Instalação 
+**Linguagem**: python<br>
+
 
 ## Outros 
 Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
