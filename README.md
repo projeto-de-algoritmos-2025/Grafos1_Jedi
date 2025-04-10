@@ -15,13 +15,13 @@ Este repositório apresenta a solução de exercícios de juíz online do site [
 | Título | Aluna | Resolução | 
 | -- | -- | --|
 | [Breadth First Search: Shortest Reach](https://www.hackerrank.com/challenges/bfsshortreach/problem?isFullScreen=true)  |  Mylena Angélica |   -----------  |
-| -------  |  Larissa Stefane | --------    |
+| [Journey to the Moon](https://www.hackerrank.com/challenges/journey-to-the-moon/problem)  |  Larissa Stefane | --------    |
 
 ### Questões Difíceis
 | Título | Aluna | Resolução | 
 | -- | -- | --|
 | [Floyd : City of Blinding Lights](https://www.hackerrank.com/challenges/floyd-city-of-blinding-lights/problem?isFullScreen=true)  |  Mylena Angélica |   ------------  |
-| -------- |  Larissa Stefane |---------     |
+| [Kingdom Connectivity](https://www.hackerrank.com/challenges/kingdom-connectivity/problem) |  Larissa Stefane |---------     |
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
