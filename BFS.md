@@ -1,7 +1,8 @@
 # Desafio Breadth First Search: Shortest Reach
 - Tema: Grafos
 - Nível: Médio
-- Linguagem: Python
+- Linguagem: Python <br> <br>
+![image](https://github.com/user-attachments/assets/8a269aa2-8be3-4c00-baa2-86b4e1ba056b)
 
 ## Enunciado
 Consider an undirected graph where each edge weighs 6 units. Each of the nodes is labeled consecutively from 1 to n. 
@@ -10,7 +11,7 @@ After you create a representation of the graph, you must determine and report th
 Return an array of distances from the start node in node number order. If a node is unreachable, return -1 for that node.
 
 Example
-The following graph is based on the listed inputs:
+The following graph is based on the listed inputs:<br><br>
 ![image](https://github.com/user-attachments/assets/a108d599-cca7-4f7e-9120-53dbdd203efc)<br>
 
 n = 5 // number of nodes
@@ -40,7 +41,7 @@ The first line contains an integer q, the number of queries. Each of the followi
 - Each line  of the  subsequent lines contains two space-separated integers,  and , that describe an edge between nodes  and .
 - The last line contains a single integer, , the node number to start from.
 
-Constraints
+Constraints<br><br>
 ![image](https://github.com/user-attachments/assets/b0f20695-ac90-48cb-affc-50ba377e9c1c)
 
 ## Código a ser completado
@@ -49,6 +50,32 @@ Constraints
 
 ## Resolução
 
+    def bfs(n, m, edges, s):
+    graph = [[] for _ in range(n + 1)]
+    
+    for edge in edges:
+        u, v = edge
+        graph[u].append(v)
+        graph[v].append(u)
+        
+    distances = [-1] * (n + 1)
+    distances[s] = 0
+    queue = deque([s])
+    while queue:
+        node = queue.popleft()        
+        
+        for neighbor in graph[node]:
+            if distances[neighbor] == -1:  
+                distances[neighbor] = distances[node] + 6  
+                queue.append(neighbor)
+    
+    return [distances[i] for i in range(1, n + 1) if i != s]
+    
+     
+
 ## Resultado Final
+![image](https://github.com/user-attachments/assets/d4da2552-9439-490a-85b4-8e1cc5de18ff)
+![image](https://github.com/user-attachments/assets/b1dee97e-3f89-436d-a74d-036ef5647685)
+
 
 
