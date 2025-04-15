@@ -14,7 +14,7 @@ Este repositório apresenta a solução de exercícios de juíz online do site [
 ### Questões Médias
 | Título | Aluna | Resolução | 
 | -- | -- | --|
-| [Breadth First Search: Shortest Reach](https://www.hackerrank.com/challenges/bfsshortreach/problem?isFullScreen=true)  |  Mylena Angélica |   -----------  |
+| [Breadth First Search: Shortest Reach](https://www.hackerrank.com/challenges/bfsshortreach/problem?isFullScreen=true)  |  Mylena Angélica |   [BFS](BFS.md)  |
 | [Journey to the Moon](https://www.hackerrank.com/challenges/journey-to-the-moon/problem)  |  Larissa Stéfane | --------    |
 
 ### Questões Difíceis
