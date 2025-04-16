@@ -2,6 +2,7 @@
 
 ## Dados do Desafio:
 
+- **Link do Desafio**: [Graph Theory: Journey to the Moon](https://www.hackerrank.com/challenges/journey-to-the-moon/problem)
 - **Tema:** Graph Teory
 - **Nível:** Médio
 - **Língaguem:** Python
