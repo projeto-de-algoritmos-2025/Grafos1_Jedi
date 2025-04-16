@@ -1,0 +1,165 @@
+# Desafio: Journey to the Moon
+
+## Dados do Desafio:
+
+- **Tema:** Graph Teory
+- **Nível:** Médio
+- **Língaguem:** Python
+
+
+
+## Enunciado
+
+
+## Passo a Passo da Resolução:
+
+
+### 1. Compreensão do Prolema:
+
+
+
+
+**Descrição:** O problema dá astronautas e pares de astronautas do mesmo país. O objetivo é calcular quantos pares de astronautas de países diferentes pode-se escolher.
+
+**Entradas:** 
+A primeira linha contém dois números inteiros:
+
+  - n → O número de astronautas que  estão na seleção
+  - p → O número de paras ou conjuntos de astronautas do mesmo país.
+
+#### Exemplo de entrada: 
+
+- n = 5 → Tem 5 Astronautas.
+
+- P = 3 → Três países diferentes, cada um com um par./
+
+- País 1: [0,1] → O país 1 tem os astronautas 0 e 1;
+
+- País 2: [2,3] → O país 2 tem os astronautas  2 e 3;
+
+- País 3; [0,4] → O país 3 tem os astronautas 0 e 4; 
+
+**Importante:** Uma observação aqui, como o país 1 e o 3 têm astronautas em comum, ou seja, o 0, então quer dizer que, na verdade, eles são o mesmo país.
+
+### 2. Idea de Como Resolver
+
+#### Como é um grafo:
+
+Cada astronauta é um vétice e cada par é na verdade um aresta que liga os nós. Por exemplo, 0–1 e 0-4.
+
+#### Pensamento
+
+1. Encontrar quais astronautas estão no mesmo país, ou seja, achar os vértices conectados.
+2. Contar os pares de astronautas que não pertencem ao mesmo país. (árvores diferentes,)
+3. Calcular o total de pares de acordo com a fórmula de combinação: n * (n -1) / 2
+4. Subtrair os pares dentro do mesmo país para cada árvore. → pares_do_grupo = g * (g - 1) / 2
+5. Total: combinação – pares por cada grupo. Exemplo: pares_do_grupo = g * (g - 1) / 2
+
+**Para encontrar as diferentes árvores**: Usar Busca em Largura (BFS) -> Vai retornar uma floresta
+
+- Os astronautas vão ser uma lista de adjacência.
+
+
+### 3. Criação de um psudo código com base no slide 23 adaptado:
+        
+        1. Criar uma lista de adjacência Adj[n]         // n é o número total de astronautas
+        2. Para cada par (a, b) na entrada:
+        3.     Adicionar b à lista de adjacência de a   
+        4.     Adicionar a à lista de adjacência de b    // Pois o grafo é não direcionado
+        
+        5. Criar um vetor visitado[n] e inicializar todos como falso   // Controlar quem já foi visitado
+        6. Criar uma lista chamada tamanhos             // Guardar os tamanhos de cada grupo (componente)
+        
+        7. Para cada astronauta s de 0 até n - 1:
+        8.     Se visitado[s] for falso:                
+        9.         Inicializar tamanho ← 0              // Inicializar  novo grupo
+        10.        (enqueue)Enfileirar s na fila S               
+        11.        Marcar visitado[s] como verdadeiro  
+        
+        12.        (While) Enquanto a fila S não estiver vazia: 
+        13.            (dequeue) Remover o primeiro elemento da fila e armazenar em u
+        14.            Incrementar tamanho em 1         // Contar quantos vértices há nesse grupo
+        
+        15.            Para cada vizinho v em Adj[u]:   
+        16.                Se visitado[v] for falso:
+        17.                     (enqueue) Enfileirar v na fila S   // Explorar esse novo vértice
+        18.                    Marcar visitado[v] como verdadeiro
+        
+        19.        Adicionar o valor de tamanho à lista tamanhos  // Salvar o tamanho do grupo
+        
+        20. Inicializar total ← 0                      // Vai guardar a soma de todos os pares possíveis
+        21. Inicializar soma ← 0                       // Vai acumular os tamanhos de grupos anteriores
+        22. Para cada t em tamanhos:
+        23.     Incrementar total com t * soma         // Calcular pares entre o grupo atual e os anteriores
+        24.     Incrementar soma com t                 // Atualizar soma para o próximo grupo
+        
+        25. Retornar total                            
+
+### 4. Criação do Código em Python
+
+          from collections import deque
+          
+          # Funcao principal para calcular os pares de astronautas de diferentes paises
+          def journeyToMoon(n, astronaut):
+              # Lista de adjacencia para representar o grafo
+              adj = [[] for _ in range(n)]
+              
+              # Preenchendo as conexoes entre astronautas (arestas)
+              for a, b in astronaut:
+                  adj[a].append(b)
+                  adj[b].append(a)
+              
+              # Funcao para BFS que encontra o tamanho de cada componente (pais)
+              def bfs(start, visited):
+                  queue = deque([start])
+                  visited[start] = True
+                  size = 0
+                  
+                  while queue:
+                      node = queue.popleft()
+                      size += 1
+                      for neighbor in adj[node]:
+                          if not visited[neighbor]:
+                              visited[neighbor] = True
+                              queue.append(neighbor)
+                  
+                  return size
+              
+              # Encontrar todos os componentes conectados (paises)
+              visited = [False] * n
+              component_sizes = []
+              
+              for i in range(n):
+                  if not visited[i]:
+                      # Iniciar BFS para encontrar o tamanho do componente
+                      component_size = bfs(i, visited)
+                      component_sizes.append(component_size)
+              
+              # Calculo do total de pares possiveis (C(n, 2))
+              total_pairs = (n * (n - 1)) // 2
+              
+              # Subtrair os pares dentro do mesmo pais para cada componente
+              same_country_pairs = 0
+              for size in component_sizes:
+                  same_country_pairs += (size * (size - 1)) // 2
+              
+              # O numero de pares entre astronautas de diferentes paises
+              return total_pairs - same_country_pairs
+          
+          # Funcao que e chamada no codigo principal
+          if __name__ == '__main__':
+              # Recebendo os valores de entrada
+              n, p = map(int, input().split())  # n: numero de astronautas, p: numero de pares
+              astronaut = []
+              
+              # Lendo as relacoes de astronautas (pares do mesmo pais)
+              for _ in range(p):
+                  a, b = map(int, input().split())
+                  astronaut.append([a, b])
+              
+              # Chamando a funcao e exibindo o resultado
+              result = journeyToMoon(n, astronaut)
+              print(result)
+
+
+## Resultado Final
