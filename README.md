@@ -9,7 +9,7 @@
 | 21/1029497  | Mylena Angélica Silva Farias  |
 
 ## Sobre 
-Este repositório apresenta a solução de exercícios de juíz online do site [Hacker Rank](https://www.hackerrank.com/) relacionados ao assunto de grafos 1. Cada membro da dupla realizou 2 questões, sendo uma delas de nível médio e uma díficil.
+Este repositório apresenta a solução de exercícios de juíz online do site [Hacker Rank](https://www.hackerrank.com/) relacionados ao assunto de grafos 1. Cada membro da dupla realizou 3 questões, sendo uma delas de nível médio e duas díficil/expert.
 
 ### Questões Médias
 | Título | Aluna | Resolução | 
@@ -20,8 +20,9 @@ Este repositório apresenta a solução de exercícios de juíz online do site [
 ### Questões Difíceis
 | Título | Aluna | Resolução | 
 | -- | -- | --|
-| [Floyd : City of Blinding Lights](https://www.hackerrank.com/challenges/floyd-city-of-blinding-lights/problem?isFullScreen=true)  |  Mylena Angélica |   ------------  |
+| [DAG Queries](https://www.hackerrank.com/challenges/dag-queries/problem)  |  Mylena Angélica |   [DAG Queries](dag.md) |
 | [Kingdom Connectivity](https://www.hackerrank.com/challenges/kingdom-connectivity/problem) |  Larissa Stéfane |---------     |
+| [Diameter Minimization](https://www.hackerrank.com/challenges/diameter-minimization/problem)  |  Mylena Angélica |  [Diameter Minimization](dm.md) |
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
