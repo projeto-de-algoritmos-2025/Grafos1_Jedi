@@ -21,7 +21,7 @@ Este repositório apresenta a solução de exercícios de juíz online do site [
 | Título | Aluna | Resolução | 
 | -- | -- | --|
 | [DAG Queries](https://www.hackerrank.com/challenges/dag-queries/problem)  |  Mylena Angélica |   [DAG Queries](dag.md) |
-| [Kingdom Connectivity](https://www.hackerrank.com/challenges/kingdom-connectivity/problem) |  Larissa Stéfane |---------     |
+| [Kingdom Connectivity](https://www.hackerrank.com/challenges/kingdom-connectivity/problem) |  Larissa Stéfane | [Kingdom_Connectivity](Kingdom_Connectivity.md)     |
 | [Diameter Minimization](https://www.hackerrank.com/challenges/diameter-minimization/problem)  |  Mylena Angélica |  [Diameter Minimization](dm.md) |
 
 ## Screenshots
