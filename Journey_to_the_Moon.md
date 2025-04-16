@@ -107,14 +107,6 @@ Cada astronauta é um vétice e cada par é na verdade um aresta que liga os nó
                 import sys
                 from collections import defaultdict, deque
                 
-                #
-                # Complete a funcao 'journeyToMoon' abaixo.
-                #
-                # A funcao deve retornar um INTEIRO.
-                # A funcao recebe os seguintes parametros:
-                #  1. INTEIRO n
-                #  2. MATRIZ 2D de INTEIROS astronaut
-                #
                 
                 def journeyToMoon(n, astronaut):
                     # Construir o grafo com os astronautas do mesmo pais
