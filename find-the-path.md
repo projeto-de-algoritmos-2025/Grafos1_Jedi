@@ -1,4 +1,5 @@
-# Desafio DAG Queries
+# Desafio Find the Path
+
 - Tema: Grafos
 - Nível: Difícil
 - Linguagem: Python <br> <br>
