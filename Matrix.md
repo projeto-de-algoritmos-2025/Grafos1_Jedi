@@ -43,6 +43,16 @@ No grafo, as cidades estão conectadas por estradas, que são as arrestas. Além
 
 - O objetivo é desconectar as máquinas, o que implica em cortar as estradas de forma eficiente.
 
+### DSU
+
+Para conseguir resolver a questão, teve-se que estudar um pouco sobre [DSU](https://cp-algorithms.com/data_structures/disjoint_set_union.html).
+
+- **DSU (Disjoint Set Union / Union-Find)** é uma estrutura de dados que permite duas operações rápidas: descobrir a qual grupo um elemento pertence (find) e unir dois grupos (union).
+- Os grupos no DSU representam conjuntos de cidades conectadas pelas estradas que não foram cortadas.
+-  Para cada estrada entre dois nós (cidade) vai se usar o **find** para verificar se eles já pertencem ao mesmo componente (grafo conectado). Se não estão unidos, então tem que verificar se ambos os grafos contêm máquinas. Caso contenham, a estrada é considerada perigosa, pois permite que duas máquinas se conectem, então ela é "destruída".
+- Se pelo menos um dos lados não tem máquina, os grafos são conectados(unidos) com union.
+
+
 #### Pensamento
 
 1. Se uma estrada conecta duas cidades que possuem máquinas, ela é considerada crítica e precisa ser cortada.
@@ -51,56 +61,48 @@ No grafo, as cidades estão conectadas por estradas, que são as arrestas. Além
 
 
 ### Criação do psudo código
+        
+        Função minTime(estradas, maquinas):
+        
+            - O grafo é não direcionado: cada estrada liga duas cidades em ambas as direções.
+        
+            - Identificar o número total de cidades (máximo ID de cidade + 1)
+        
+            - Inicializar estrutura de Union-Find (DSU) com:
+                - pai: vetor onde cada cidade é seu próprio líder (grafo)
+                - componente_tem_maquina: indica se um grafo conectado contém uma máquina
+        
+            Para cada cidade com máquina:
+                Marcar componente_tem_maquina[cidade] como verdadeiro
+        
+            Definir função encontrar_conjunto(i):
+                - Esta função encontra o líder (ou raiz) do grafo conexa da cidade i
+        
+            Definir função unir_conjuntos(i, j):
+                - Une os grafos conectados das cidades i e j
+                - Só realiza a união se ainda não estiverem conectadas
+                - Se ao unir, ambos os lados tinham máquinas, essa união não é permitida (não é feita)
+        
+            - Criar lista de estradas com formato (tempo, cidade1, cidade2)
+            - Ordenar as estradas por tempo de destruição, do maior para o menor
+        
+            - Essa ordenação garante que estradas mais custosas (evitar destruir) sejam analisadas primeiro
+        
+            Inicializar tempo_total_minimo = 0
+        
+            Para cada estrada (tempo, u, v) na lista ordenada:
+                raiz_u = encontrar_grafo(u)
+                raiz_v = encontrar_grafo(v)
+        
+                - Se as cidades u e v estão em grafos diferentes:
+                    - Se ambas as componentes já têm máquinas:
+                        - A estrada precisa ser destruída, então adiciona o tempo ao total
+                    - Senão:
+                        - Pode manter essa estrada no grafo (manter conectividade)
+                        - Unir os dois conjuntos no Union-Find (conectar as cidades no grafo)
+        
+            Retornar tempo_total_minimo
 
-
-        def minTime(roads, machines):
-            # Inicializar a variável para o número de cidades
-            n = max_city_id(roads, machines)
-        
-            # Criar o array de pais e inicializar a presença de máquinas nas cidades
-            parent = list(range(n))
-            machine_in_component = [False] * n
-            for machine in machines:
-                machine_in_component[machine] = True
-        
-            # Função para encontrar o líder de um conjunto (Union-Find)
-            def find_set(i):
-                if parent[i] == i:
-                    return i
-                parent[i] = find_set(parent[i])
-                return parent[i]
-        
-            # Função para unir dois conjuntos
-            def unite_sets(i, j):
-                root_i = find_set(i)
-                root_j = find_set(j)
-                if root_i != root_j:
-                    parent[root_j] = root_i
-                    machine_in_component[root_i] = machine_in_component[root_i] or machine_in_component[root_j]
-                    return True
-                return False
-        
-            # Processar as estradas e ordenar
-            processed_edges = []
-            for u, v, time in roads:
-                processed_edges.append((time, u, v))
-            processed_edges.sort(key=lambda x: x[0], reverse=True)
-        
-            # Inicializar o tempo total de destruição
-            min_total_time = 0
-        
-            # Processar as estradas e calcular o tempo total
-            for time, u, v in processed_edges:
-                root_u = find_set(u)
-                root_v = find_set(v)
-        
-                if root_u != root_v:
-                    if machine_in_component[root_u] and machine_in_component[root_v]:
-                        min_total_time += time
-                    else:
-                        unite_sets(u, v)
-        
-            return min_total_time
 
 
 ### 4. Criação do Código em Python
@@ -117,102 +119,101 @@ No grafo, as cidades estão conectadas por estradas, que são as arrestas. Além
           except Exception as e:
               pass
           
-          # Funcao para calcular o tempo minimo para conectar as maquinas usando as estradas
-          def minTime(roads, machines):
-              max_node_id = -1
-          
-              # Verifica se ha estradas ou maquinas
-              if not roads and not machines:
-                  n = 0  # Nenhuma estrada nem maquina
-              else:
-                  # Encontra o maior id de no nas estradas
-                  for u, v, _ in roads:
-                      max_node_id = max(max_node_id, u, v)
-                  # Encontra o maior id de no nas maquinas
-                  for machine_node in machines:
-                      max_node_id = max(max_node_id, machine_node)
-                  # O numero de nos sera o maior id encontrado mais 1
-                  n = max_node_id + 1
-          
-              # Se nao ha nos (nenhuma estrada ou maquina), retorna 0
-              if n == 0:
-                  return 0
-              # Se ha apenas um no, tambem nao ha tempo
-              if n == 1:
-                  return 0
-          
-              # Inicializa o vetor de pais (para o algoritmo de uniao de conjuntos disjuntos)
-              parent = list(range(n))
-              # Vetor que indica se um no tem maquina ou nao
-              machine_in_component = [False] * n
-              # Marca os nos que tem maquinas
-              for machine_node in machines:
-                  if 0 <= machine_node < n:
-                      machine_in_component[machine_node] = True
-          
-              # Funcao para encontrar o pai de um conjunto, com compressao de caminho
-              def find_set(i):
-                  if parent[i] == i:
-                      return i
-                  parent[i] = find_set(parent[i])
-                  return parent[i]
-          
-              # Funcao para unir dois conjuntos, atualizando o vetor de pais
-              def unite_sets(i, j):
-                  root_i = find_set(i)
-                  root_j = find_set(j)
-                  # Se os conjuntos forem diferentes, unimos eles
-                  if root_i != root_j:
-                      parent[root_j] = root_i
-                      machine_in_component[root_i] = machine_in_component[root_i] or machine_in_component[root_j]
-                      return True
-                  return False
-          
-              # Processa as estradas, armazenando as estradas validas
-              processed_edges = []
-              for u, v, time in roads:
-                  if 0 <= u < n and 0 <= v < n:
-                      processed_edges.append((time, u, v))
-          
-              # Ordena as estradas pelo tempo, em ordem decrescente
-              processed_edges.sort(key=lambda x: x[0], reverse=True)
-          
-              # Variavel para acumular o tempo total minimo
-              min_total_time = 0
-          
-              # Processa as estradas para conectar os componentes
-              for time, u, v in processed_edges:
-                  root_u = find_set(u)
-                  root_v = find_set(v)
-          
-                  # Se os dois nos nao pertencem ao mesmo conjunto, tentamos unir eles
-                  if root_u != root_v:
-                      # Se ambos os conjuntos possuem maquinas, adicionamos o tempo
-                      if machine_in_component[root_u] and machine_in_component[root_v]:
-                          min_total_time += time
-                      else:
-                          # Caso contrario, unimos os conjuntos
-                          unite_sets(u, v)
-          
-              # Retorna o tempo minimo total para conectar as maquinas
-              return min_total_time
-          
-          # Funcao principal que recebe a entrada e chama a funcao minTime
+                  # Funcao para calcular o tempo minimo para conectar as maquinas usando as estradas
+                 def minTime(estradas, maquinas):
+            maior_id_no = -1
+        
+            # Verifica se ha estradas e maquinas
+            if not estradas and not maquinas:
+                numero_de_nos = 0  # Nenhuma estrada nem maquina
+            else:
+                # Encontra o maior id de no nas estradas para identificar a quatidade.
+                for cidade1, cidade2, _ in estradas:
+                    maior_id_no = max(maior_id_no, cidade1, cidade2)
+        
+                # Considera tambem os nos com maquinas
+                for no_com_maquina in maquinas:
+                    maior_id_no = max(maior_id_no, no_com_maquina)
+        
+                numero_de_nos = maior_id_no + 1  # Numero total de nos no grafo
+        
+            # Casos triviais: nenhum no ou apenas um no
+            if numero_de_nos == 0 or numero_de_nos == 1:
+                return 0
+        
+            # Inicializa o vetor de pais
+            pai = list(range(numero_de_nos))
+        
+            # Vetor que indica se um no tem maquina
+            maquina_no_componente = [False] * numero_de_nos
+        
+            # Marca os nos que contem maquinas
+            for no_com_maquina in maquinas:
+                if 0 <= no_com_maquina < numero_de_nos:
+                    maquina_no_componente[no_com_maquina] = True
+        
+            # Funcao para encontrar o representante do conjunto com compressao de caminho, baseado na recurssao do DFS
+            def encontrar_pai(no):
+                if pai[no] == no:
+                    return no
+                pai[no] = encontrar_pai(pai[no])
+                return pai[no]
+        
+            # Funcao para unir dois conjuntos disjuntos
+            def unir_conjuntos(no1, no2):
+                raiz1 = encontrar_pai(no1)
+                raiz2 = encontrar_pai(no2)
+                # Se os conjuntos sao diferentes, unimos
+                if raiz1 != raiz2:
+                    pai[raiz2] = raiz1
+                    maquina_no_componente[raiz1] = maquina_no_componente[raiz1] or maquina_no_componente[raiz2]
+                    return True
+                return False
+        
+            # Processa as estradas validas
+            estradas_processadas = []
+            for cidade1, cidade2, tempo in estradas:
+                if 0 <= cidade1 < numero_de_nos and 0 <= cidade2 < numero_de_nos:
+                    estradas_processadas.append((tempo, cidade1, cidade2))
+        
+            # Ordena as estradas por tempo em ordem decrescente
+            estradas_processadas.sort(key=lambda x: x[0], reverse=True)
+        
+            # Variavel que acumula o tempo total minimo
+            tempo_total_minimo = 0
+        
+            # Processa as estradas para evitar que maquinas se conectem
+            for tempo, cidade1, cidade2 in estradas_processadas:
+                raiz1 = encontrar_pai(cidade1)
+                raiz2 = encontrar_pai(cidade2)
+        
+                # Se ainda nao estao no mesmo conjunto
+                if raiz1 != raiz2:
+                    # Se ambos os conjuntos contem maquinas, destruir essa estrada
+                    if maquina_no_componente[raiz1] and maquina_no_componente[raiz2]:
+                        tempo_total_minimo += tempo
+                    else:
+                        # Caso contrario, unimos os conjuntos
+                        unir_conjuntos(cidade1, cidade2)
+        
+            # Retorna o tempo total minimo para evitar que maquinas se conectem
+            return tempo_total_minimo
+
           if __name__ == '__main__':
-              output_path = os.environ.get('OUTPUT_PATH')  # Verifica se ha caminho para a saida
+              output_path = os.environ.get('OUTPUT_PATH')  
               if output_path:
-                  fptr = open(output_path, 'w')  # Abre o arquivo de saida
+                  fptr = open(output_path, 'w') 
               else:
-                  fptr = sys.stdout  # Caso nao haja caminho, usa a saida padrao
+                  fptr = sys.stdout 
           
               try:
-                  # Leitura da entrada
                   first_multiple_input = input().rstrip().split()
-                  n_nodes = int(first_multiple_input[0])  # Numero de nos
-                  k_machines = int(first_multiple_input[1])  # Numero de maquinas
+                  n_nodes = int(first_multiple_input[0]) 
+                  k_machines = int(first_multiple_input[1])  
           
                   input_roads = []
-                  num_edges_to_read = n_nodes - 1  # O numero de arestas eh n-1 (em uma arvore)
+                  
+                  num_edges_to_read = n_nodes - 1  
                   for _ in range(num_edges_to_read):
                       road_data = list(map(int, input().rstrip().split()))
                       if len(road_data) == 3:
@@ -223,14 +224,10 @@ No grafo, as cidades estão conectadas por estradas, que são as arrestas. Além
                       machines_item = int(input().strip())
                       input_machines.append(machines_item)
           
-                  # Chama a funcao para calcular o tempo minimo
+        
                   result = minTime(input_roads, input_machines)
           
-                  # Escreve o resultado na saida
+                  
                   fptr.write(str(result) + '\n')
           
-              except Exception as e:
-                  pass  # Em caso de erro, nao faz nada
-              finally:
-                  if output_path and fptr != sys.stdout:
-                      fptr.close()  # Fecha o arquivo de saida, se estiver sendo usado
+                      fptr.close()  
