@@ -20,7 +20,7 @@ Este repositório apresenta a solução de exercícios de juíz online do site [
 ### Questões Difíceis
 | Título | Aluna | Resolução | 
 | -- | -- | --|
-| [DAG Queries](https://www.hackerrank.com/challenges/dag-queries/problem)  |  Mylena Angélica |   [DAG Queries](dag.md) |
+| [Find the Path](https://www.hackerrank.com/challenges/shortest-path/problem)  |  Mylena Angélica |   [Find the Path](find-the-path.md) |
 | [Kingdom Connectivity](https://www.hackerrank.com/challenges/kingdom-connectivity/problem) |  Larissa Stéfane | [Kingdom_Connectivity](Kingdom_Connectivity.md)     |
 | [Diameter Minimization](https://www.hackerrank.com/challenges/diameter-minimization/problem)  |  Mylena Angélica |  [Diameter Minimization](dm.md) |
 | [Matrix](https://www.hackerrank.com/challenges/matrix/problem) | Larissa Stéfane | [Matrix](Matrix.md) |
