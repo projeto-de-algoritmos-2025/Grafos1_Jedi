@@ -107,20 +107,20 @@ Para conseguir resolver a questão, teve-se que estudar um pouco sobre [DSU](htt
 
 ### 4. Criação do Código em Python
 
-          import math
-          import os
-          import random
-          import re
-          import sys
-          
-          # Tenta aumentar o limite de recursao para permitir chamadas de funcao mais profundas
-          try:
-              sys.setrecursionlimit(20000)
-          except Exception as e:
-              pass
-          
-                  # Funcao para calcular o tempo minimo para conectar as maquinas usando as estradas
-                 def minTime(estradas, maquinas):
+        import math
+        import os
+        import random
+        import re
+        import sys
+        
+        # Tenta aumentar o limite de recursao para permitir chamadas de funcao mais profundas
+        try:
+            sys.setrecursionlimit(20000)
+        except Exception as e:
+            pass
+        
+        # Funcao para calcular o tempo minimo para conectar as maquinas usando as estradas
+        def minTime(estradas, maquinas):
             maior_id_no = -1
         
             # Verifica se ha estradas e maquinas
@@ -198,36 +198,37 @@ Para conseguir resolver a questão, teve-se que estudar um pouco sobre [DSU](htt
         
             # Retorna o tempo total minimo para evitar que maquinas se conectem
             return tempo_total_minimo
-
-          if __name__ == '__main__':
-              output_path = os.environ.get('OUTPUT_PATH')  
-              if output_path:
-                  fptr = open(output_path, 'w') 
-              else:
-                  fptr = sys.stdout 
-          
-              try:
-                  first_multiple_input = input().rstrip().split()
-                  n_nodes = int(first_multiple_input[0]) 
-                  k_machines = int(first_multiple_input[1])  
-          
-                  input_roads = []
-                  
-                  num_edges_to_read = n_nodes - 1  
-                  for _ in range(num_edges_to_read):
-                      road_data = list(map(int, input().rstrip().split()))
-                      if len(road_data) == 3:
-                          input_roads.append(road_data)
-          
-                  input_machines = []
-                  for _ in range(k_machines):
-                      machines_item = int(input().strip())
-                      input_machines.append(machines_item)
-          
         
-                  result = minTime(input_roads, input_machines)
-          
-                  
-                  fptr.write(str(result) + '\n')
-          
-                      fptr.close()  
+        if __name__ == '__main__':
+            output_path = os.environ.get('OUTPUT_PATH')
+            if output_path:
+                fptr = open(output_path, 'w')
+            else:
+                fptr = sys.stdout
+        
+            try:
+                first_multiple_input = input().rstrip().split()
+                n_nodes = int(first_multiple_input[0])
+                k_machines = int(first_multiple_input[1])
+        
+                input_roads = []
+        
+                num_edges_to_read = n_nodes - 1
+                for _ in range(num_edges_to_read):
+                    road_data = list(map(int, input().rstrip().split()))
+                    if len(road_data) == 3:
+                        input_roads.append(road_data)
+        
+                input_machines = []
+                for _ in range(k_machines):
+                    machines_item = int(input().strip())
+                    input_machines.append(machines_item)
+        
+                result = minTime(input_roads, input_machines)
+        
+                fptr.write(str(result) + '\n')
+        
+                fptr.close()
+        
+            except Exception as e:
+                pass
