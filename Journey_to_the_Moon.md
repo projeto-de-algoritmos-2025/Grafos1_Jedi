@@ -7,18 +7,17 @@
 - **Nível:** Médio
 - **Língaguem:** Python
 
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_DadosJtM.png" alt="Descrição" width="400"/>
 
 
 ## Enunciado
 
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_EnunciadoJtM.png" alt="Descrição" width="1000"/>
 
 ## Passo a Passo da Resolução:
 
 
 ### 1. Compreensão do Prolema:
-
-
-
 
 **Descrição:** O problema dá astronautas e pares de astronautas do mesmo país. O objetivo é calcular quantos pares de astronautas de países diferentes pode-se escolher.
 
@@ -168,3 +167,5 @@ if __name__ == '__main__':
 
 
 ## Resultado Final
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_ResultadoJtM.png" alt="Descrição" width="800"/>
