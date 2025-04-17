@@ -11,7 +11,7 @@
 
 ### 1. Compreensão do Prolema:
 
-O problema é considera que se tem um conjunto de cidades conectadas por estradas **bidimensionais**. Assim, o objetivo é cortar a mínima quantidade de estradas para que os nós que contêm máquinas não estejam mais conectados entre si.
+O problema considera que se tem um conjunto de cidades conectadas por estradas **bidimensionais**. Assim, o objetivo é cortar a mínima quantidade de estradas para que os nós que contêm máquinas não estejam mais conectados entre si.
 
 **Entradas:**
 
