@@ -7,12 +7,16 @@
 - **Nível**: Difícil
 - **Linguagem**: Python
 
-<img src="" alt="Descrição" width="400"/>
+**Figura 1:** Dados do desafio.
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_DadosBLT.png" alt="Descrição" width="400"/>
 
 
 ## Enunciado
 
-<img src="" alt="Descrição" width="1000"/>
+**Figura 2**: Enuciado do desafio.
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_EnunciadoBLT.png" alt="Descrição" width="1000"/>
 
 ## Passo a Passo da Resolução:
 
@@ -30,21 +34,19 @@ O desafio principal é contar o número de rotas que podem ser formadas entre as
 
 #### Exemplo de entrada: 
 
-2        ← número de casos de teste (T)
-3        ← número de cidades no primeiro caso (N = 3)
-0 1      ← estrada entre as cidades 0 e 1
-1 2      ← estrada entre as cidades 1 e 2
-5        ← número de cidades no segundo caso (N = 5)
-0 1      ← estrada entre as cidades 0 e 1
-1 2      ← estrada entre as cidades 1 e 2
-2 3      ← estrada entre as cidades 2 e 3
-2 4      ← estrada entre as cidades 2 e 4
+- 2        ← número de casos de teste (T)
+- 3        ← número de cidades no primeiro caso (N = 3)
+- 0 1      ← estrada entre as cidades 0 e 1
+- 1 2      ← estrada entre as cidades 1 e 2
+- 5        ← número de cidades no segundo caso (N = 5)
+- 0 1      ← estrada entre as cidades 0 e 1
+- 1 2      ← estrada entre as cidades 1 e 2
+- 2 3      ← estrada entre as cidades 2 e 3
+- 2 4      ← estrada entre as cidades 2 e 4
 
 **Importante**: As estradas são bidimensionais, ou seja, é um grafo não direcionado.
 
 ### 2. Idea de Como Resolver
-
-#### Como é um grafo:
 
 #### Pensamento
 
@@ -270,4 +272,18 @@ if __name__ == '__main__':
 
 ## Resultado Final
 
-<img src="" alt="Descrição" width="800"/>
+**Figura 3:** Mostrar que o código foi aceito.
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_ResultadoBLT.png" alt="Descrição" width="800"/>
+
+## Submissões
+
+**Figura 4:** Mostrar as submissões enquanto tenatava resolver.
+
+<img src="https://github.com/projeto-de-algoritmos-2025/Grafos1_Jedi/blob/main/Imagens/PA1_SubmissoesBLT.png" alt="Descrição" width="800"/>
+
+## Histórico de versão
+
+| Versão | Data | Descrição | Autora | Revisora |
+| ------ | ---- | --------- | ------ | -------- |
+|1.0 |17/04/2025|Resolução do Desafio |Larissa Stéfane |----------| 
