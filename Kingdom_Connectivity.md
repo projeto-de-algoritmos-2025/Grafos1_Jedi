@@ -17,7 +17,7 @@
 
 ### 1. Compreensão do Prolema:
 
-**Descrição: No grafo, o objetivo é encontrar quantos caminhos diferentes existem do nó 1 até o nó n (de 1 a n), ou determinar se há infinitos caminhos**
+**Descrição:** No grafo, o objetivo é encontrar quantos caminhos diferentes existem do nó 1 até o nó n (de 1 a n), ou determinar se há infinitos caminhos.
 
 **Observação:** O resultado numérico é em modulo 10⁹
 
@@ -93,124 +93,126 @@ Tem ainda m linhas com dois inteiros que mostra as arestas que ligam as cidades.
 
 
 ### 4. Criação do Código em Python
+```python
+import sys
+import math
+import os
+import random
+import re
 
-        import sys
-        import math
-        import os
-        import random
-        import re
+# Tenta definir o limite de recursao para 20000
+try:
+    sys.setrecursionlimit(20000) 
+except Exception as e:
+    pass 
+
+MOD = 1000000000  # Constante MOD, usada para limitar o resultado final
+
+def countPaths(n, edges):
+    # Se nao ha nos no grafo, nao ha caminhos
+    if n == 0:
+        print(0)
+        return
+    
+    # Caso o grafo tenha apenas 1 no
+    if n == 1:
+        # Se houver uma aresta (1,1), isso pode causar um ciclo infinito
+        for u_in, v_in in edges:
+            if u_in == 1 and v_in == 1:
+                print("INFINITE PATHS")
+                return
+        print(1)  # Se nao houver ciclo infinito, o numero de caminhos e 1
+        return
+
+    # Inicializa listas de adjacencia para o grafo e seu inverso
+    e = [[] for _ in range(n)]  # Grafo original
+    ee = [[] for _ in range(n)]  # Grafo invertido
+
+    # Inicializa arrays para marcar nos visitados
+    vis0 = [False] * n  # Marca nos visitados a partir do no 1
+    vis1 = [False] * n  # Marca nos visitados a partir do no n
+    vis = [False] * n  # Marca todos os nos visitados durante a busca
+    memo = [-1] * n  # Memorizacao para evitar recalculos
+
+    # Funcao DFS para explorar os nos do grafo
+    def dfs(graph, u, visited_array):
+        visited_array[u] = True
+        for v in graph[u]:
+            if not visited_array[v]:
+                dfs(graph, v, visited_array)
+
+    # Funcao recursiva para contar os caminhos
+    def _count_paths_recursive(u):
+        if memo[u] != -1:
+            return memo[u]  # Retorna o resultado memorizado se ja foi calculado
         
-        # Tenta definir o limite de recursao para 20000
+        vis[u] = True  # Marca o no como visitado durante a busca
+        
+        ans = 0  # Contagem de caminhos
+        if u == n - 1:  # Se o no for o destino final (n-1)
+            ans = 1  # Um caminho encontrado
+        else:
+            # Para cada no adjacente, tenta contar os caminhos
+            for v in e[u]:
+                # Verifica se o no v e alcancavel tanto do inicio quanto do fim
+                if vis0[v] and vis1[v]: 
+                    # Se o no v ja foi visitado, ha um ciclo infinito
+                    if vis[v]: 
+                        raise ValueError("INFINITE PATHS") 
+                    
+                    # Chama a funcao recursiva para contar os caminhos a partir de v
+                    path_count_from_v = _count_paths_recursive(v)
+                    # Atualiza a contagem total de caminhos
+                    ans = (ans + path_count_from_v) % MOD
+
+        vis[u] = False  # Desmarca o no como visitado para outras buscas
+        memo[u] = ans 
+        return ans
+
+    # Preenche as listas de adjacencia com os dados das arestas
+    for edge in edges:
+        u_in, v_in = edge[0], edge[1]
+        u_idx, v_idx = u_in - 1, v_in - 1  # Converte para indice 0-base
+        if 0 <= u_idx < n and 0 <= v_idx < n:
+             e[u_idx].append(v_idx)  # Adiciona aresta ao grafo
+             ee[v_idx].append(u_idx)  # Adiciona aresta ao grafo invertido
+
+    # Executa DFS a partir do no 1 para marcar os nos alcancaveis
+    dfs(e, 0, vis0)          
+    # Executa DFS a partir do no n para marcar os nos alcancaveis no grafo invertido
+    if n - 1 >= 0: 
+        dfs(ee, n - 1, vis1) 
+
+    # Verifica se o no final e alcancavel a partir do no 1
+    if not vis0[n - 1]:
+         print(0)  # Se nao for alcancavel, nao ha caminho
+    else:
         try:
-            sys.setrecursionlimit(20000) 
-        except Exception as e:
-            pass 
-        
-        MOD = 1000000000  # Constante MOD, usada para limitar o resultado final
-        
-        def countPaths(n, edges):
-            # Se nao ha nos no grafo, nao ha caminhos
-            if n == 0:
-                print(0)
-                return
-            
-            # Caso o grafo tenha apenas 1 no
-            if n == 1:
-                # Se houver uma aresta (1,1), isso pode causar um ciclo infinito
-                for u_in, v_in in edges:
-                    if u_in == 1 and v_in == 1:
-                        print("INFINITE PATHS")
-                        return
-                print(1)  # Se nao houver ciclo infinito, o numero de caminhos e 1
-                return
-        
-            # Inicializa listas de adjacencia para o grafo e seu inverso
-            e = [[] for _ in range(n)]  # Grafo original
-            ee = [[] for _ in range(n)]  # Grafo invertido
-        
-            # Inicializa arrays para marcar nos visitados
-            vis0 = [False] * n  # Marca nos visitados a partir do no 1
-            vis1 = [False] * n  # Marca nos visitados a partir do no n
-            vis = [False] * n  # Marca todos os nos visitados durante a busca
-            memo = [-1] * n  # Memorizacao para evitar recalculos
-        
-            # Funcao DFS para explorar os nos do grafo
-            def dfs(graph, u, visited_array):
-                visited_array[u] = True
-                for v in graph[u]:
-                    if not visited_array[v]:
-                        dfs(graph, v, visited_array)
-        
-            # Funcao recursiva para contar os caminhos
-            def _count_paths_recursive(u):
-                if memo[u] != -1:
-                    return memo[u]  # Retorna o resultado memorizado se ja foi calculado
-                
-                vis[u] = True  # Marca o no como visitado durante a busca
-                
-                ans = 0  # Contagem de caminhos
-                if u == n - 1:  # Se o no for o destino final (n-1)
-                    ans = 1  # Um caminho encontrado
-                else:
-                    # Para cada no adjacente, tenta contar os caminhos
-                    for v in e[u]:
-                        # Verifica se o no v e alcancavel tanto do inicio quanto do fim
-                        if vis0[v] and vis1[v]: 
-                            # Se o no v ja foi visitado, ha um ciclo infinito
-                            if vis[v]: 
-                                raise ValueError("INFINITE PATHS") 
-                            
-                            # Chama a funcao recursiva para contar os caminhos a partir de v
-                            path_count_from_v = _count_paths_recursive(v)
-                            # Atualiza a contagem total de caminhos
-                            ans = (ans + path_count_from_v) % MOD
-        
-                vis[u] = False  # Desmarca o no como visitado para outras buscas
-                memo[u] = ans  # Memorizacao do resultado
-                return ans
-        
-            # Preenche as listas de adjacencia com os dados das arestas
-            for edge in edges:
-                u_in, v_in = edge[0], edge[1]
-                u_idx, v_idx = u_in - 1, v_in - 1  # Converte para indice 0-base
-                if 0 <= u_idx < n and 0 <= v_idx < n:
-                     e[u_idx].append(v_idx)  # Adiciona aresta ao grafo
-                     ee[v_idx].append(u_idx)  # Adiciona aresta ao grafo invertido
-        
-            # Executa DFS a partir do no 1 para marcar os nos alcancaveis
-            dfs(e, 0, vis0)          
-            # Executa DFS a partir do no n para marcar os nos alcancaveis no grafo invertido
-            if n - 1 >= 0: 
-                dfs(ee, n - 1, vis1) 
-        
-            # Verifica se o no final e alcancavel a partir do no 1
-            if not vis0[n - 1]:
-                 print(0)  # Se nao for alcancavel, nao ha caminho
+            # Conta os caminhos a partir do no 1 para o no n
+            result = _count_paths_recursive(0) 
+            print(result)
+        except ValueError as e_msg:
+            # Caso ocorra um ciclo infinito
+            if str(e_msg) == "INFINITE PATHS":
+                print("INFINITE PATHS")
             else:
-                try:
-                    # Conta os caminhos a partir do no 1 para o no n
-                    result = _count_paths_recursive(0) 
-                    print(result)
-                except ValueError as e_msg:
-                    # Caso ocorra um ciclo infinito, imprime a mensagem apropriada
-                    if str(e_msg) == "INFINITE PATHS":
-                        print("INFINITE PATHS")
-                    else:
-                        raise  # Levanta a excecao caso seja outro erro
-        
-        # Leitura da entrada
-        if __name__ == '__main__':
-            first_multiple_input = input().rstrip().split()
-        
-            nodes = int(first_multiple_input[0])
-        
-            m = int(first_multiple_input[1])
-        
-            edges_input = []
-        
-            # Leitura das arestas
-            for _ in range(m):
-                edges_input.append(list(map(int, input().rstrip().split())))
-        
-            # Chama a funcao para contar os caminhos
-            countPaths(nodes, edges_input)
+                raise 
+
+
+if __name__ == '__main__':
+    first_multiple_input = input().rstrip().split()
+
+    nodes = int(first_multiple_input[0])
+
+    m = int(first_multiple_input[1])
+
+    edges_input = []
+
+    for _ in range(m):
+        edges_input.append(list(map(int, input().rstrip().split())))
+
+    countPaths(nodes, edges_input)
+hs(nodes, edges_input)
+```
+
+## Resolução
