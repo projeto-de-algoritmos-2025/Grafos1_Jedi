@@ -8,9 +8,11 @@
 - **Nível:** Difíil
 - **Língaguem:** Python
 
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_DadosKC.png" alt="Descrição" width="400"/>
 
 ## Enunciado
 
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_EnunciadoKC.png" alt="Descrição" width="1000"/>
 
 ## Passo a Passo da Resolução:
 
@@ -216,4 +218,6 @@ if __name__ == '__main__':
     countPaths(nodes, edges_input)
 ```
 
-## Resolução
+## Resultado Final
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_ResultadoKC.png" alt="Descrição" width="800"/>
