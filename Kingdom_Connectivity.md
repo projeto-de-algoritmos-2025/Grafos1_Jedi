@@ -166,7 +166,7 @@ def countPaths(n, edges):
                     ans = (ans + path_count_from_v) % MOD
 
         vis[u] = False  # Desmarca o no como visitado para outras buscas
-        memo[u] = ans 
+        memo[u] = ans  # Memorizacao do resultado
         return ans
 
     # Preenche as listas de adjacencia com os dados das arestas
@@ -192,13 +192,13 @@ def countPaths(n, edges):
             result = _count_paths_recursive(0) 
             print(result)
         except ValueError as e_msg:
-            # Caso ocorra um ciclo infinito
+            # Caso ocorra um ciclo infinito, imprime a mensagem apropriada
             if str(e_msg) == "INFINITE PATHS":
                 print("INFINITE PATHS")
             else:
-                raise 
+                raise  # Levanta a excecao caso seja outro erro
 
-
+# Leitura da entrada
 if __name__ == '__main__':
     first_multiple_input = input().rstrip().split()
 
@@ -208,11 +208,12 @@ if __name__ == '__main__':
 
     edges_input = []
 
+    # Leitura das arestas
     for _ in range(m):
         edges_input.append(list(map(int, input().rstrip().split())))
 
+    # Chama a funcao para contar os caminhos
     countPaths(nodes, edges_input)
-hs(nodes, edges_input)
 ```
 
 ## Resolução
