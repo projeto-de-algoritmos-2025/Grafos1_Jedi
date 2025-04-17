@@ -24,7 +24,7 @@ Este repositório apresenta a solução de exercícios de juíz online do site [
 | [Kingdom Connectivity](https://www.hackerrank.com/challenges/kingdom-connectivity/problem) |  Larissa Stéfane | [Kingdom_Connectivity](Kingdom_Connectivity.md)     |
 | [Diameter Minimization](https://www.hackerrank.com/challenges/diameter-minimization/problem)  |  Mylena Angélica |  [Diameter Minimization](dm.md) |
 | [Matrix](https://www.hackerrank.com/challenges/matrix/problem) | Larissa Stéfane | [Matrix](Matrix.md) |
-
+| [ByteLandian Tours](https://www.hackerrank.com/challenges/bytelandian-tours/problem) | Larissa Stéfane <br> Mylena Angélica| [ByteLandian Tours](ByteLandian_Tours.md) |
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
