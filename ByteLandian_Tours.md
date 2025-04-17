@@ -182,7 +182,7 @@ def analisar_no(indice_no, n, adj_original, graus_original, fatoriais_precalcula
         return (eh_interno, estrutura_possivel, termo_fatorial) 
 
 # Funcao calcula o numero de rotas possiveis na arvore
-def calcular_rotas_hamiltonianas(n, adj_original, graus_original, fatoriais_precalculados):
+def calcular_rotas(n, adj_original, graus_original, fatoriais_precalculados):
     produto_total = 1
     contagem_nos_internos = 0
 
