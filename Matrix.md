@@ -7,6 +7,13 @@
 - **Nível:** Difícil
 - **Língaguem:** Python
 
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_DadosMatrix.png" alt="Descrição" width="400"/>
+
+## Enunciado
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_EnunciadoMatrix.png" alt="Descrição" width="1000"/>
+
+
 ## Passo a Passo da Resolução:
 
 ### 1. Compreensão do Prolema:
@@ -236,4 +243,6 @@ if __name__ == '__main__':
 
 ```
 
-## Resolução
+## Resultado Final
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_ResultadoMatrix.png" alt="Descrição" width="800"/>
