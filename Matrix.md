@@ -107,7 +107,8 @@ Para conseguir resolver a questão, teve-se que estudar um pouco sobre [DSU](htt
 
 ### 4. Criação do Código em Python
 
- import math
+```python
+import math
 import os
 import random
 import re
@@ -232,3 +233,7 @@ if __name__ == '__main__':
 
     except Exception as e:
         pass
+
+```
+
+## Resolução
