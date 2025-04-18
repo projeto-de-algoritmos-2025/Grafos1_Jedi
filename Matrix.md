@@ -7,9 +7,13 @@
 - **Nível:** Difícil
 - **Língaguem:** Python
 
+**Figura 1:** Dados do desafio.
+
 <img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_DadosMatrix.png" alt="Descrição" width="400"/>
 
 ## Enunciado
+
+**Figura 2**: Enuciado do desafio.
 
 <img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_EnunciadoMatrix.png" alt="Descrição" width="1000"/>
 
@@ -245,4 +249,22 @@ if __name__ == '__main__':
 
 ## Resultado Final
 
+**Figura 3:** Mostrar que o código foi aceito.
+
 <img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_ResultadoMatrix.png" alt="Descrição" width="800"/>
+
+## Submissões
+
+**Figura 4:** Mostrar as submissões enquanto tenatava resolver.
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_SubmissoesMatrix.png" alt="Descrição" width="800"/>
+
+## Histórico de versão
+
+| Versão | Data | Descrição | Autora | Revisora |
+| ------ | ---- | --------- | ------ | -------- |
+|1.0 |16/04/2025|Criação do Documento|Larissa Stéfane | Mylena Angélica |
+|1.0 |16/04/2025| Adição do Código em Python |Larissa Stéfane | Mylena Angélica | 
+|1.0 |16/04/2025| Adição das capturas de tela |Larissa Stéfane | Mylena Angélica | 
+|1.0 |17/04/2025| Adição das submissões |Larissa Stéfane | Mylena Angélica | 
+
