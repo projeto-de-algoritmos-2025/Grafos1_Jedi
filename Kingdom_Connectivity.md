@@ -242,7 +242,7 @@ if __name__ == '__main__':
 
 | Versão | Data | Descrição | Autora | Revisora |
 | ------ | ---- | --------- | ------ | -------- |
-|1.0 |16/04/2025| Criação do documento |Larissa Stéfane |----------| 
-|1.1 |16/04/2025| Adição do código em python |Larissa Stéfane |----------|
-|1.2 |16/04/2025| Adição da imagens capturas de tela |Larissa Stéfane |----------| 
-|1.3 |17/04/2025| Reorganização do documento e adição das tentativas de submissões |Larissa Stéfane |----------| 
+|1.0 |16/04/2025| Criação do documento |Larissa Stéfane | Mylena Angélica | 
+|1.1 |16/04/2025| Adição do código em python |Larissa Stéfane | Mylena Angélica |
+|1.2 |16/04/2025| Adição da imagens capturas de tela |Larissa Stéfane | Mylena Angélica | 
+|1.3 |17/04/2025| Reorganização do documento e adição das tentativas de submissões |Larissa Stéfane | Mylena Angélica | 
