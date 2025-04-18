@@ -49,7 +49,7 @@ Constraints<br><br>
 ![image](https://github.com/user-attachments/assets/8f96f132-e4fb-4d53-b330-0a2731488ae5)
 
 ## Resolução
-
+```python
     def bfs(n, m, edges, s):
     graph = [[] for _ in range(n + 1)]
     
@@ -70,12 +70,18 @@ Constraints<br><br>
                 queue.append(neighbor)
     
     return [distances[i] for i in range(1, n + 1) if i != s]
-    
+  ```  
      
 
 ## Resultado Final
 ![image](https://github.com/user-attachments/assets/d4da2552-9439-490a-85b4-8e1cc5de18ff)
 ![image](https://github.com/user-attachments/assets/b1dee97e-3f89-436d-a74d-036ef5647685)
 
+## Histórico de versão
+| Versão | Data       | Descrição | Autora | Revisora |
+|--------|------------|-----------------------|--------|----------|
+| 1.0    | 10/04/2025 | Criação do documento | Mylena | Larissa |
+| 1.1    | 15/04/2025 | Adição da resolução  | Mylena | Larissa |
+| 1.2    | 17/04/2025 | Formatação e adição do histórico de versão | Mylena | Larissa |
 
 
