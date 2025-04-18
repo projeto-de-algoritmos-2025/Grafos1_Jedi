@@ -286,4 +286,4 @@ if __name__ == '__main__':
 
 | Versão | Data | Descrição | Autora | Revisora |
 | ------ | ---- | --------- | ------ | -------- |
-|1.0 |17/04/2025|Resolução do Desafio |Larissa Stéfane |----------| 
+|1.0 |17/04/2025|Resolução do Desafio |Larissa Stéfane | Mylena Angélica | 
