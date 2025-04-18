@@ -9,7 +9,7 @@
 | 21/1029497  | Mylena Angélica Silva Farias  |
 
 ## Sobre 
-Este repositório apresenta a solução de exercícios de juíz online do site [Hacker Rank](https://www.hackerrank.com/) relacionados ao assunto de grafos 1. Cada membro da dupla realizou 3 questões, sendo uma delas de nível médio e duas díficil/expert.
+Este repositório apresenta a solução de exercícios de juíz online do site [Hacker Rank](https://www.hackerrank.com/) relacionados ao assunto de grafos 1. Cada membro da dupla realizou 7 questões, sendo 2delas de nível médio e 5 díficil/expert.
 
 ### Questões Médias
 | Título | Resolução | 
@@ -29,6 +29,7 @@ Este repositório apresenta a solução de exercícios de juíz online do site [
 Screenshots das resoluções estão indicados na tabela acima.
 
 ## Link do vídeo
+[https://youtu.be/V3a0MNDsfwY](https://youtu.be/V3a0MNDsfwY)
 
 ## Instalação 
 **Linguagem**: python<br>
