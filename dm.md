@@ -52,9 +52,7 @@ Next, print  lines where each line  () contains  space-separated integers in the
 
 
 ## Resolução
-
-
-
+```python
     def eprint(*args, **kwargs):
         print(*args, file=sys.stderr, **kwargs)
     
@@ -115,7 +113,7 @@ Next, print  lines where each line  () contains  space-separated integers in the
     for n in RN:
         print(*out[n])
         #if n>10: eprint("BREAK"); break
-
+```
 
 
 ## Resultado
@@ -125,6 +123,10 @@ Next, print  lines where each line  () contains  space-separated integers in the
 ![image](https://github.com/user-attachments/assets/2525e7ba-6364-428d-893c-6de811ef18fc)
 
 
-
+## Histórico de versão
+| Versão | Data       | Descrição | Autora | Revisora |
+|--------|------------|-----------------------|--------|----------|
+| 1.0    | 15/04/2025 | Criação do documento | Mylena | Larissa |
+| 1.1    | 17/04/2025 | Formatação e adição do histórico de versão | Mylena | Larissa |
 
 
