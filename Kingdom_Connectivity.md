@@ -8,9 +8,13 @@
 - **Nível:** Difíil
 - **Língaguem:** Python
 
+**Figura 1:** Dados do desafio.
+
 <img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_DadosKC.png" alt="Descrição" width="400"/>
 
 ## Enunciado
+
+**Figura 2**: Enuciado do desafio.
 
 <img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_EnunciadoKC.png" alt="Descrição" width="1000"/>
 
@@ -220,4 +224,25 @@ if __name__ == '__main__':
 
 ## Resultado Final
 
+**Figura 3:** Mostrar que o código foi aceito.
+
 <img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_ResultadoKC.png" alt="Descrição" width="800"/>
+
+## Submissões
+
+**Figura 4:** Mostrar as submissões tentadas para resolver.
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_SubmissoesKC1.png" alt="Descrição" width="800"/>
+
+**Figura 5:** COntinuação das tentativas para resolver.
+
+<img src="https://raw.githubusercontent.com/projeto-de-algoritmos-2025/Grafos1_Jedi/refs/heads/main/Imagens/PA1_SubmissoesKC2.png" alt="Descrição" width="800"/>
+
+## Histórico de versão
+
+| Versão | Data | Descrição | Autora | Revisora |
+| ------ | ---- | --------- | ------ | -------- |
+|1.0 |16/04/2025| Criação do documento |Larissa Stéfane |----------| 
+|1.1 |16/04/2025| Adição do código em python |Larissa Stéfane |----------|
+|1.2 |16/04/2025| Adição da imagens capturas de tela |Larissa Stéfane |----------| 
+|1.3 |17/04/2025| Reorganização do documento e adição das tentativas de submissões |Larissa Stéfane |----------| 
