@@ -18,7 +18,7 @@ Este repositório apresenta a solução de exercícios de juíz online do site [
 | [Journey to the Moon](https://www.hackerrank.com/challenges/journey-to-the-moon/problem)  | [Jorney to The Moon](Journey_to_the_Moon.md)    |
 
 ### Questões Difíceis
-| Título | Aluna | 
+| Título | Resolução | 
 | -- | -- |
 | [Find the Path](https://www.hackerrank.com/challenges/shortest-path/problem)  |  [Find the Path](find-the-path.md) |
 | [Kingdom Connectivity](https://www.hackerrank.com/challenges/kingdom-connectivity/problem) | [Kingdom_Connectivity](Kingdom_Connectivity.md)     |
