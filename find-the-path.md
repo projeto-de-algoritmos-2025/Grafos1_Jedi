@@ -25,7 +25,7 @@
 
 
 ## Resolução
-
+```python
     import sys
     from heapq import *
     
@@ -173,11 +173,18 @@
         read_input()
         process_queries_by_column(0, num_cols - 1, query_dict)
         print_query_results()
+```
 
-
- ## Resultados
+ ## Resultado 
 ![image](https://github.com/user-attachments/assets/2d90c846-e9e3-49a1-af77-9230be89c7a0)
 ![image](https://github.com/user-attachments/assets/597a3aef-18fa-47fd-b2a9-7e911c8309f4)
+
+## Histórico de versão
+| Versão | Data       | Descrição | Autora | Revisora |
+|--------|------------|-----------------------|--------|----------|
+| 1.0    | 15/04/2025 | Criação do documento | Mylena | Larissa |
+| 1.1    | 17/04/2025 | Mudança da questão, nome do arquivo e adição da resolução  | Mylena | Larissa |
+| 1.2    | 17/04/2025 | Formatação e adição do histórico de versão | Mylena | Larissa |
 
  
 
